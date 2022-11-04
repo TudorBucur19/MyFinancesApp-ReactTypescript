@@ -1,0 +1,21 @@
+@mixin font($size: null, $color: null, $weight: null, $textTransform: null, $lineHeight: null, $family: null, $text-align: null, $style: null, $text-decoration: null) {
+    font-size: $size;
+    color: $color;
+    font-weight: $weight;
+    text-transform: $textTransform;
+    line-height: $lineHeight;
+    font-family: $family;
+    text-align: $text-align;
+    font-style: $style;
+    text-decoration: $text-decoration;
+}
+
+@mixin lineHeightCrop($line-height, $font-size) {
+    &::before {
+        content: '';
+        display: block;
+        height: 0;
+        width: 0;
+        margin-top: calc(($font-size - $line-height) * 0.5);
+    }
+}

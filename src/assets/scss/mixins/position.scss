@@ -1,0 +1,64 @@
+/*
+    mixin for setting the possition;
+    if you don't want to set set/right/top/bottom you can use it like:
+    @include position(absolute);
+    .element { @include position(absolute, 10px, 20px, 30px, 40px); }
+    this is if you want to define top, right bottom, left in this exact order
+    .element { @include position(absolute, $top: 10px, left: 20px); }
+    this is if you don't keep the order
+  */
+@mixin position($position: null, $top: null, $right: null, $bottom: null, $left: null) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+/*
+    mixin to vertically-align: center a selector;
+      ex: .txt { @include vertical_center(absolute); }
+    beware: gives position as param and adds top, left: 50%, and translates the container to center it.
+  */
+@mixin vertical_center($position) {
+  @include prefix(transform, translateY(-50%), webkit moz ms o);
+  @include position($position, $top: 50%);
+}
+
+/*
+      mixin to vertically-align: center and horizontal align: center a selector;
+        ex: .txt { @include force_center(absolute); }
+      beware: gives position as param and adds top, left: 50%, and translates the container to center it.
+    */
+@mixin force_center($position) {
+  @include prefix(transform, translate(-50%, -50%), webkit moz ms o);
+  @include position($position, $top: 50%, $left: 50%);
+}
+
+/*
+      added null property so you can get away using only what you need from this mixin
+      ex: good: @include display($justify-content: center, $align-items: center);
+    */
+@mixin display(
+  $display: null,
+  $justify-content: null,
+  $align-items: null,
+  $align-self: null,
+  $flex-direction: null,
+  $flex-wrap: null,
+  $flex-grow: null,
+  $flex-basis: null,
+  $order: null,
+  $vertical-align: null
+) {
+  display: $display;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  align-self: $align-self;
+  flex-direction: $flex-direction;
+  flex-wrap: $flex-wrap;
+  flex-grow: $flex-grow;
+  flex-basis: $flex-basis;
+  order: $order;
+  vertical-align: $vertical-align;
+}

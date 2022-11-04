@@ -1,0 +1,13 @@
+/*
+  added null property so you can get away using only what you need from this mixin
+  ex: good: @include size($width: 100%, $max-widht: 320px);
+  bad: @include size(100px, 200px); works anyhow but it's difficult to maintain
+*/
+@mixin size($height: null, $width: null, $min-width: null, $max-width: null, $min-height: null, $max-height: null) {
+  height: $height;
+  width: $width;
+  min-width: $min-width;
+  max-width: $max-width;
+  min-height: $min-height;
+  max-height: $max-height;
+}

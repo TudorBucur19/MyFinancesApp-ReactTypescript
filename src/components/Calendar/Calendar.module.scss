@@ -1,0 +1,84 @@
+@import 'assets/scss/index.scss';
+
+.container {
+    @include display(flex, $flex-direction: column);
+    width: 80%;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+    background: orange;
+    padding: 1em;
+
+    &_changeMonth {
+        display: flex;
+        align-items: center;
+
+        &_monthDisplay {
+            padding: 0 1em;
+            font-weight: bold;
+        }
+    }   
+}
+
+.dayNames {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 0;
+    color: blueviolet;
+    font-weight: bold;
+    
+    &_day {
+        width: calc((100% - 6*$calendarGap) / 7);
+    }
+}
+
+.calendar {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+
+.daySquare {
+    width: calc((100% - 6*$calendarGap) / 7);
+    aspect-ratio: 1;
+    background-color: $daySquareBg;
+
+    &_header {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5em;
+        background: yellow;
+
+        &_dayNo {
+            font-weight: bold;
+            font-size: 1.4em;
+            color: gray;
+        }
+
+        &_action {
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+
+.operationContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3em 0.5em;
+}
+
+.paddingDay {
+    background-color: rgba($daySquareBg, .5);
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: flex;
+}

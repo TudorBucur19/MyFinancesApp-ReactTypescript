@@ -1,0 +1,2 @@
+export const SET_CLICKED_DAY = 'SET_CLICKED_DAY';
+export const SET_MODAL_STATUS = 'SET_MODAL_STATUS';

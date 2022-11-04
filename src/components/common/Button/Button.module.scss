@@ -1,0 +1,27 @@
+@import 'assets/scss/index.scss';
+
+.basicBtn {
+    border-radius: 6px;
+    border-style: none;
+    font-size: 1em;
+    padding: 0.5em;
+    //background: $btnBg; 
+    //color: $btnText;   
+
+    &:disabled {
+        opacity: 0.5;
+    }
+}
+
+.success {
+    background-color: $incBg;
+}
+
+.danger {
+    background-color: $expBg;
+}
+
+.round {
+    border-radius: 50%;
+    border: 4px solid white;
+}
